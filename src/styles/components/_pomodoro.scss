@@ -1,0 +1,182 @@
+@mixin fluid-type($properties, $min-vw, $max-vw, $min-value, $max-value) {
+  @each $property in $properties {
+    #{$property}: $min-value;
+  }
+
+  @media screen and (min-width: $min-vw) {
+    @each $property in $properties {
+      #{$property}: calc(#{$min-value} + #{strip-unit($max-value - $min-value)} * (100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)});
+    }
+  }
+
+  @media screen and (min-width: $max-vw) {
+    @each $property in $properties {
+      #{$property}: $max-value;
+    }
+  }
+}
+
+a, a:active, a:hover, a:visited {
+    color: white;
+    text-decoration: none;
+}
+
+body {
+    background-attachment: fixed;
+    background-image: url('/Images/kuaui.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#clock {
+    background: linear-gradient(lighten(black, 25%) 5%, rgba(169,169,169,0.7));
+    border: 3px solid black;
+    border-radius: 10% 10% 10% 10% / 5% 5% 5% 5%;
+    height: 500px;
+    margin: 30px auto;
+    margin: calc((95vh - 500px)/2) auto;
+    max-width: 250px;
+    min-width: 250px;
+    width: 50%;
+}
+
+#title {
+    color: white;
+    font-size: 175%;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    text-align: center;
+}
+
+#timer-type {
+    color: white;
+    font-size: 150%;
+    margin-bottom: -10px;
+    padding-top: 15px;
+    text-align: center;
+}
+
+#time-display {
+    background: black;
+    border-radius: 10% 10% 10% 10% / 25% 25% 25% 25%;
+    margin: 35px auto;
+    text-align: center;
+    width: 175px;
+}
+
+#time {
+    color: white;
+    cursor: pointer;
+    font-size: 400%;
+}
+
+#seconds-wheel {
+    border: 2px solid black;
+    border-radius: 10% 10% 10% 10% / 30% 30% 30% 30%;
+    color: white;
+    height: 70px;
+    margin: 0 auto 13px auto;
+    overflow: hidden;
+    width: 200px;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes scroll-wheel {
+    from {margin-left: 0;}
+    to {margin-left: -20px}
+}
+
+/* Standard syntax */
+@keyframes scroll-wheel {
+    from {margin-left: 0;}
+    to {margin-left: -44px}
+}
+
+#timer-bars {
+    -webkit-animation-duration: 10s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-name: scroll-wheel;
+    -webkit-animation-timing-function: linear;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-name: scroll-wheel;
+    animation-timing-function: linear;
+    width: 130%;
+}
+
+.ten-second-bar, .five-second-bar {
+    background: black;
+    display: inline-block;
+    margin: 0 10px;
+    width: 2px;
+}
+
+.ten-second-bar {
+    height: 40px;
+    margin-top: 14px;
+}
+
+.five-second-bar {
+    height: 27px;
+    margin-top: 27px;
+}
+
+#settings {
+    display: flex;
+    justify-content: space-around;
+}
+
+#interval-time, #break-time {
+    background: black;
+    border-radius: 5px;
+    color: white;
+    font-size: 300%;
+    margin: 20px auto 0 auto;
+    text-align: center;
+    width: 75px;
+}
+
+.adjust-buttons {
+    display: flex;
+    flex-direction: row;
+    font-weight: bold;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.adjust-button {
+    background: gray;
+    border: 1px solid darkGray;
+    cursor: pointer;
+    font-size: 125%;
+    width: 100%;
+}
+
+#decrease-interval, #decrease-break {
+    border-radius: 5px 0 0 5px;
+    border-right: 1px solid darkGray;
+}
+
+#increase-interval, #increase-break {
+    border-radius: 0 5px 5px 0;
+}
+
+#clock-footer {
+    color: white;
+    font-size: 80%;
+    padding-top: 45px;
+    text-align: center;
+}
+
+#photo-credit {
+    background: black;
+    bottom: 0;
+    color: white;
+    padding: 5px 10px;
+    position: absolute;
+    right: 0;
+}
