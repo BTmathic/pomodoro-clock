@@ -52,7 +52,7 @@ body {
     text-align: center;
 }
 
-#timer-type {
+#timer-label {
     color: white;
     font-size: 150%;
     margin-bottom: -10px;
@@ -68,10 +68,33 @@ body {
     width: 175px;
 }
 
-#time {
+#time-left {
     color: white;
-    cursor: pointer;
     font-size: 400%;
+}
+
+#controls {
+  display: flex;
+  justify-content: space-around;
+}
+
+#start_stop, #reset {
+  border: 2px solid black;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-size: 150%;
+  margin: -30px 0 5px 0;
+  text-align: center;
+  width: 30%;
+}
+
+#start_stop {
+  background: green;
+}
+
+#reset {
+  background: red;
 }
 
 #seconds-wheel {
@@ -128,9 +151,15 @@ body {
 #settings {
     display: flex;
     justify-content: space-around;
+    margin-top: -10px;
 }
 
-#interval-time, #break-time {
+#break p, #interval p {
+  margin-bottom: -20px;
+  text-align: center;
+}
+
+#session-length, #break-length {
     background: black;
     border-radius: 5px;
     color: white;
@@ -156,12 +185,12 @@ body {
     width: 100%;
 }
 
-#decrease-interval, #decrease-break {
+#session-decrement, #break-decrement {
     border-radius: 5px 0 0 5px;
     border-right: 1px solid darkGray;
 }
 
-#increase-interval, #increase-break {
+#session-increment, #break-increment {
     border-radius: 0 5px 5px 0;
 }
 
