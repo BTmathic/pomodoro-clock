@@ -17,7 +17,7 @@ export default class Pomodoro extends React.Component {
     const minutes = ('0' + Math.floor(timer/60)).slice(-2);
     const seconds = ('0' + (timer - minutes*60)).slice(-2);
     return `${minutes}:${seconds}`;
-  }
+  };
 
   handleToggleClock = () => {
     this.setState((prevState) => ({
@@ -39,7 +39,7 @@ export default class Pomodoro extends React.Component {
       animationPlayState: 'paused',
       timerColour: '#BE8539'
     }));
-  }
+  };
 
   handleChangeTime = (e, change) => {
     if (!this.state.timerRunning) {
@@ -96,7 +96,7 @@ export default class Pomodoro extends React.Component {
       }
     }
     this.setState((prevState) => ({ timer: prevState.timer - 1}))
-  }
+  };
 
   initializeClock = () => {
     setTimeout(() => {
@@ -105,11 +105,11 @@ export default class Pomodoro extends React.Component {
       }
       this.initializeClock();
     }, 1000);
-  }
+  };
 
   componentWillMount() {
     this.initializeClock();
-  }
+  };
 
   render() {
     return (
